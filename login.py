@@ -13,7 +13,7 @@ def get_users():
 def does_user_exist(username):
     try:
         get_users().index(username)
-    except IndexError:
+    except ValueError:
         return False
     else:
         return True
