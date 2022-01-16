@@ -11,7 +11,7 @@ def get_mouse_pos():
     print(positions)
     mouse.write_to_file(positions)
     window.after(100, get_mouse_pos)
-#get_mouse_pos()
+get_mouse_pos()
 listen_to_keyboard()
 window.mainloop()
 

