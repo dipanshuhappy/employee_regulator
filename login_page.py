@@ -1,4 +1,3 @@
-from os import terminal_size
 import tkinter
 import login
 window=tkinter.Tk()
