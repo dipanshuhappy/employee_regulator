@@ -1,4 +1,4 @@
 .file.txt
 .mouse_activity.txt
-.__pycache__
+/__pycache__
 *.pyc
