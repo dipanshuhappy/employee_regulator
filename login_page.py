@@ -31,11 +31,17 @@ class App(tk.Tk):
     def signup_button_clicked(self):
         user_name=self.username_entry.get()
         password=self.password_entry.get()
+        self.handle_signup(user_name,password)
+    def handle_signup(self,user_name,password):
         if login.does_user_exist(user_name):
             showinfo(title='Information',
                     message='User Exists')
         else:
-            login.add_user(user_name,password)
+            if (login.check_email(user_name)):
+                login.add_user(user_name,password)
+            else:
+                showinfo(title='Information',
+                    message='Invalid Email')
     def handle_login(self,user_name,password):
         if login.does_user_exist(user_name):
             if login.is_password_valid(user_name, password):

@@ -1,4 +1,6 @@
+import re
 PATH="users.txt"
+EMAIL_REGEX=r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 def read_file():
     with open(PATH) as file:
         return file.read()
@@ -33,6 +35,5 @@ def is_password_valid(username,password_input):
                 is_valid=True
                 break
     return is_valid
-            
-
-
+def check_email(email):
+    return re.fullmatch(EMAIL_REGEX, email)
