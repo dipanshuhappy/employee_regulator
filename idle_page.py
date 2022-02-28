@@ -2,7 +2,6 @@ from logger import listen_to_keyboard,get_total_keyboard_clicks
 import mouse
 import tkinter as tk
 from tkinter.ttk import *
-
 class IdlePage(tk.Tk):
     def __init__(self):
         super().__init__()
