@@ -9,28 +9,35 @@ class App(tk.Tk):
         self.title('Login page')
         self.geometry('800x200')
 
-        self.label1 = ttk.Label(self, text='Username')
-        self.label1.pack()
+        self.username_label = ttk.Label(self, text='Username')
+        self.username_label.pack()
 
-        self.entry1 = ttk.Entry(self)
-        self.entry1.pack()
+        self.username_entry = ttk.Entry(self)
+        self.username_entry.pack()
 
-        self.label2=ttk.Label(self, text="Password")
-        self.label2.pack()
+        self.password_label=ttk.Label(self, text="Password")
+        self.password_label.pack()
 
-        self.entry2= ttk.Entry(self)
-        self.entry2.pack()
+        self.password_entry= ttk.Entry(self,show='*')
+        self.password_entry.pack()
 
-        self.button = ttk.Button(self, text='Enter')
-        self.button['command'] = self.button_clicked
-        self.button.pack()
+        self.enter_button = ttk.Button(self, text='Enter')
+        self.enter_button['command'] = self.button_clicked
+        self.enter_button.pack()
 
-    def button_clicked(self):
-        user_name=self.entry1.get()
-        password=self.entry2.get()
+        self.signup_button = ttk.Button(self, text='Sign Up')
+        self.signup_button['command'] = self.signup_button_clicked
+        self.signup_button.pack()
+    def signup_button_clicked(self):
+        user_name=self.username_entry.get()
+        password=self.password_entry.get()
         if login.does_user_exist(user_name):
-
-         
+            showinfo(title='Information',
+                    message='User Exists')
+        else:
+            login.add_user(user_name,password)
+    def handle_login(self,user_name,password):
+        if login.does_user_exist(user_name):
             if login.is_password_valid(user_name, password):
                 pass
             else:
@@ -39,8 +46,10 @@ class App(tk.Tk):
         else:
             showinfo(title='Information',
                     message='User does not exit')
-   
-
+    def button_clicked(self):
+        user_name=self.username_entry.get()
+        password=self.password_entry.get()
+        self.handle_login(user_name,password)
 
 if __name__ == "__main__":
     app = App()

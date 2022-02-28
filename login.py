@@ -1,9 +1,13 @@
+PATH="users.txt"
 def read_file():
-    with open("users.txt") as file:
+    with open(PATH) as file:
         return file.read()
 def read_lines():
-    with open("users.txt") as file:
+    with open(PATH) as file:
         return [line.strip() for line in file.readlines()]
+def write_line(line):
+    with open(PATH,'a') as file:
+        file.write(f'{line} \n')
 def get_users():
     users=[]
     for user in read_lines():
@@ -17,6 +21,8 @@ def does_user_exist(username):
         return False
     else:
         return True
+def add_user(username,password):
+    write_line(f'{username} {password}')
 def is_password_valid(username,password_input):
     is_valid=False
     for user in read_lines():
