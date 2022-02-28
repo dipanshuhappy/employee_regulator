@@ -30,5 +30,8 @@ def listen_to_keyboard():
     listener.start()
 def get_total_keyboard_clicks():
     with open("file.txt",'r') as f:
-        return int(f.read())
+        try:
+            return int(f.read())
+        except ValueError:
+            return 0
 

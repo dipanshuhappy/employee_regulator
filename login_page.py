@@ -3,7 +3,7 @@ import tkinter as tk
 import login
 from tkinter import ttk
 from tkinter.messagebox import showinfo
-class App(tk.Tk):
+class LoginPage(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title('Login page')
@@ -58,5 +58,5 @@ class App(tk.Tk):
         self.handle_login(user_name,password)
 
 if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+    LoginPage = LoginPage()
+    LoginPage.mainloop()
